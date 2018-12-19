@@ -25,7 +25,7 @@
 import Foundation
 import UIKit
 
-class AnimationManager : NSObject, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+public class AnimationManager : NSObject, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     var isPresenting : Bool
     var animation : UIViewControllerAnimationProtocol
     
