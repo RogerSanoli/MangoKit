@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name              = 'MangoKit'
     s.version           = '0.0.1'
-    s.summary           = 'Changes UIViewController's transition animations with a single line of code.'
+    s.summary           = "Changes UIViewController's transition animations with a single line of code."
     s.homepage          = 'https://github.com/RogerSanoli/MangoKit'
 
     s.author            = { 'Name' => 'you@yourcompany.com' }
