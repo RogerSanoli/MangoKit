@@ -24,7 +24,7 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     func setAnimation(_ animation: AnimationFactory.TransitionAnimation) {
         self.transitioningDelegate = AnimationFactory.transitionForViewController(self, anim:animation)
     }
