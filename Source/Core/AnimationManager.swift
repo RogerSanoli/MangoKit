@@ -25,7 +25,7 @@
 import Foundation
 import UIKit
 
-class AnimationManager : NSObject, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+public class AnimationManager : NSObject, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     var isPresenting : Bool
     var animation : UIViewControllerAnimationProtocol
     
@@ -34,21 +34,21 @@ class AnimationManager : NSObject, UIViewControllerTransitioningDelegate, UIView
         self.animation = animation
     }
     
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         self.isPresenting = false
         return self
     }
     
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         self.isPresenting = true
         return self
     }
     
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return self.isPresenting ? self.animation.durationForPresenting() : self.animation.durationForDismissing()
     }
  
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         if(self.isPresenting) {
             self.animation.animatePresentationWithContext(context: transitionContext)
         }

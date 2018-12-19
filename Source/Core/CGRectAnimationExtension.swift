@@ -1,5 +1,5 @@
 //
-//  UIViewControllerAnimationExtension.swift
+//  CGRectAnimationExtension.swift
 //
 //  Copyright (c) 2018 Roger dos Santos Oliveira
 //
@@ -24,13 +24,24 @@
 
 import UIKit
 
-public extension UIViewController {
-    func setAnimation(_ animation: AnimationFactory.TransitionAnimation) {
-        self.transitioningDelegate = AnimationFactory.transitionForViewController(self, anim:animation)
-    }
-    
-    func present(_ viewControllerToPresent: UIViewController, animation: AnimationFactory.TransitionAnimation, completion: (() -> Void)? = nil) {
-        self.setAnimation(animation)
-        self.present(viewControllerToPresent, animated: true, completion: completion)
+public extension CGRect {
+    static func windowBounds(fullscreen:Bool?=false) -> CGRect {
+        
+        let screenbounds = UIScreen.main.bounds
+        var safeAreaHeight : CGFloat = 0
+        
+        if #available(iOS 11.0, *) {
+            safeAreaHeight = (UIApplication.shared.keyWindow?.safeAreaInsets.top)! + (UIApplication.shared.keyWindow?.safeAreaInsets.bottom)!
+        }
+        
+        if safeAreaHeight == 0 {
+            safeAreaHeight = 20
+        }
+        
+        if fullscreen == true {
+            safeAreaHeight = 0
+        }
+        
+        return CGRect(x: screenbounds.origin.x, y: screenbounds.origin.y, width: screenbounds.size.width, height: screenbounds.size.height - safeAreaHeight)
     }
 } 

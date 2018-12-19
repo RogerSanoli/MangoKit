@@ -26,7 +26,7 @@
 import Foundation
 import UIKit
 
-class AnimationFactory {
+public class AnimationFactory {
     public enum TransitionAnimation {
         case alpha,
         hole(x: CGFloat, y: CGFloat, size: CGFloat),
