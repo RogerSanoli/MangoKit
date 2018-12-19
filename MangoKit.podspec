@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
     s.license           = { :type => 'MIT', :file => 'LICENSE' }
 
     s.platform          = :ios
-    s.source            = { :git => 'https://github.com/RogerSanoli/MangoKit.git', :tag => '0.0.2' }
+    s.source            = { :git => 'https://github.com/RogerSanoli/MangoKit.git', :tag => s.version.to_s }
     s.source_files      = "Source/**/*"
     s.ios.deployment_target = '11.0'
 end
